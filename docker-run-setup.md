@@ -26,3 +26,10 @@ docker compose down -v >> (Stop + hapus container + hapus volume (hati-hati, log
 1. Masuk ke folder project (tempat file docker-compose.yaml berada)
 2. Jalankan: docker compose up -d
 3. Akses localhost:8080 (Airflow)
+
+
+## POSTGRESQL CONNECTION VIA DBEAVER
+
+1. Tambahkan ports di service postgres (file .yaml)
+2. Dibawah volume, tambahkan ports: 5432-5432
+3. Jalankan di terminal: docker-compose up -d --no-deps --build postgres
