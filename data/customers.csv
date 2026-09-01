@@ -1,0 +1,7 @@
+customer_id,name,email,gender,created_at
+C001,Andi Saputra,andi@gmail.com,Male,2023-01-10
+C002,Budi Santoso,budi_santoso@gmail.com,MALE,2023-02-15
+C003,Siti Aminah,sitiaminahgmail.com,Female,2023-03-20
+C004,Dewi Lestari,,F,2023-04-01
+C005,Rina Putri,rina@gmail.com,FEMALE,2023-05-12
+C005,Rina Putri Duplicate,rina@gmail.com,FEMALE,2023-05-12

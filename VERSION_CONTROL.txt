@@ -1,0 +1,8 @@
+# 1. Menambahkan semua file dan folder (otomatis mematuhi aturan .gitignore)
+git add .
+
+# 2. Membuat commit untuk perubahan tersebut
+git commit -m "Kirim semua file proyek"
+
+# 3. Mengunggah ke server remote (misal: branch main atau master)
+git push origin main

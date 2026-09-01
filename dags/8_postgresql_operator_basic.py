@@ -20,6 +20,7 @@ default_args = {
     catchup=False,
     tags=['belajar', 'postgres', 'database'],
 )
+
 def postgres_operator_basic():
 
     # -------------------------------------------------
@@ -27,9 +28,9 @@ def postgres_operator_basic():
     # -------------------------------------------------
     create_table = SQLExecuteQueryOperator(
         task_id='create_table',
-        postgres_conn_id='postgres_dbeaver',          # nama connection yang kamu buat
+        conn_id='postgres_dbeaver',          # nama connection yang kamu buat
         sql="""
-            CREATE TABLE IF NOT EXISTS belajar_airflow (
+            CREATE TABLE IF NOT EXISTS airflow_tutorial (
                 id              SERIAL PRIMARY KEY,
                 nama            VARCHAR(100),
                 kota            VARCHAR(50),
@@ -44,9 +45,9 @@ def postgres_operator_basic():
     # -------------------------------------------------
     insert_data = SQLExecuteQueryOperator(
         task_id='insert_data',
-        postgres_conn_id='postgres_dbeaver',
+        conn_id='postgres_dbeaver',
         sql="""
-            INSERT INTO belajar_airflow (nama, kota, nilai)
+            INSERT INTO airflow_tutorial (nama, kota, nilai)
             VALUES
                 ('Budi', 'Jakarta', 85),
                 ('Siti', 'Bandung', 90),
@@ -60,9 +61,9 @@ def postgres_operator_basic():
     # -------------------------------------------------
     insert_dynamic = SQLExecuteQueryOperator(
         task_id='insert_dynamic',
-        postgres_conn_id='postgres_dbeaver',
+        conn_id='postgres_dbeaver',
         sql="""
-            INSERT INTO belajar_airflow (nama, kota, nilai)
+            INSERT INTO airflow_tutorial (nama, kota, nilai)
             VALUES ('Airflow_{{ ds_nodash }}', 'Automated', {{ 70 + 5 }});
         """
     )
@@ -72,9 +73,9 @@ def postgres_operator_basic():
     # -------------------------------------------------
     check_data = SQLExecuteQueryOperator(
         task_id='check_data',
-        postgres_conn_id='postgres_dbeaver',
+        conn_id='postgres_dbeaver',
         sql="""
-            SELECT * FROM belajar_airflow
+            SELECT * FROM airflow_tutorial
             ORDER BY id DESC
             LIMIT 10;
         """
